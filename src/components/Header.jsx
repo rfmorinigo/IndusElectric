@@ -92,6 +92,27 @@ export default function Header() {
     { label: "Contacto", href: "#contacto" },
   ];
 
+  const NavItem = ({ item }) => {
+  if (item.href) {
+    return (
+      <a
+        href={item.href}
+        className="flex items-center gap-1 text-slate-300 hover:text-white"
+      >
+        <span>{item.label}</span>
+      </a>
+    );
+  }
+
+  return (
+    <button className="flex items-center gap-1 text-slate-300 hover:text-white">
+      <span>{item.label}</span>
+      <ChevronDown className="w-4 h-4" />
+    </button>
+  );
+};
+
+
   return (
     <>
       {/* Barra superior */}
@@ -153,10 +174,7 @@ export default function Header() {
             <nav className="hidden lg:flex items-center gap-8">
               {menuItems.map((item) => (
                 <div key={item.label} className="relative group">
-                  <button className="flex items-center gap-1 text-slate-300 hover:text-white">
-                    <span>{item.label}</span>
-                    {item.submenu && <ChevronDown className="w-4 h-4" />}
-                  </button>
+                  <NavItem item={item} />
 
                   {item.submenu && (
                     <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">

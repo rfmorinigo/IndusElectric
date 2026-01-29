@@ -29,7 +29,7 @@ export default function ContactSection() {
   ]
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-950 to-slate-900">
+    <section id='contacto' className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-950 to-slate-900">
       <div className="max-w-4xl mx-auto text-center">
         {/* Header */}
         <h2 className="text-3xl font-bold text-white mb-6">
