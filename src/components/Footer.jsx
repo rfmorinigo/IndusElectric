@@ -83,7 +83,7 @@ const Footer = () => {
             
             <p className="text-slate-400 mb-6">
               Proveedores oficiales de materiales eléctricos para profesionales 
-              e industria. Más de 15 años brindando calidad y confianza.
+              e industria. 38 años de experiencia.
             </p>
             
             {/* Redes sociales */}

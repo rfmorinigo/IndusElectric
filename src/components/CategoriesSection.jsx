@@ -34,7 +34,8 @@ export default function CategoriesSection({ categorias }) {
               />
 
               {/* Content */}
-              <div className="relative z-10">
+
+              <a className="relative z-10" href={categoria.url} target='_blank'>
                 <div className="text-3xl mb-3">
                   {categoria.icon}
                 </div>
@@ -44,7 +45,7 @@ export default function CategoriesSection({ categorias }) {
                 <p className="text-sm text-slate-400">
                   {categoria.cantidad} productos
                 </p>
-              </div>
+              </a>
 
               {/* Arrow */}
               <div

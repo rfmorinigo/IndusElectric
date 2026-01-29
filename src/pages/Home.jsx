@@ -28,10 +28,7 @@ export default function App() {
   }, [])
 
   const comprar = (producto) => {
-    const msg = encodeURIComponent(
-      `Hola, quiero consultar por el producto: ${producto.nombre} (Código: ${producto.id})`
-    )
-    window.open(`https://wa.me/5491123456789?text=${msg}`, '_blank')
+    window.open(producto.url, '_blank');
   }
 
   return (
