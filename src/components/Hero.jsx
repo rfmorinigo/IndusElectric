@@ -59,17 +59,17 @@ export default function Hero() {
             <div className="flex gap-4 mb-12">
               <button
                 onClick={() =>
-                  window.open("https://wa.me/5491123456789", "_blank")
+                  window.open("https://wa.me/+5491144704380", "_blank")
                 }
-                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl flex items-center gap-3"
+                className="cursor-pointer px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl flex items-center gap-3"
               >
                 Consultar productos
                 <ArrowRight className="w-5 h-5" />
               </button>
 
-              <button className="px-8 py-4 border border-slate-700 text-white rounded-xl">
+              <a target="_blank" href="https://www.mercadolibre.com.ar/pagina/induselectric" className="px-8 py-4 border border-slate-700 text-white rounded-xl">
                 Ver catálogo
-              </button>
+              </a>
             </div>
 
             {/* Features */}
@@ -101,13 +101,9 @@ export default function Hero() {
 
           {/* Visual */}
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 text-center">
-            <Zap className="w-16 h-16 text-blue-400 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-white">
-              +500 productos en stock
-            </h3>
-            <p className="text-slate-400 mt-2">
-              Para profesionales e industria
-            </p>
+            <img src="/img/frente.png"
+            alt="hero_img"
+            className="w-full h-full object-contain"/>
           </div>
         </div>
       </div>

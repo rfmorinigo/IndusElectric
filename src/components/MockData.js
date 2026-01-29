@@ -1,23 +1,25 @@
 export const productosMock = [
   { 
     id: 1, 
-    nombre: 'Cable Unipolar 2.5mm', 
-    categoria: 'Cables', 
-    precio: 1200,
-    descripcion: 'Cable unipolar de cobre estañado, aislamiento de PVC',
+    nombre: 'Cable Subterraneo 2 X 6 Mm Antiflama Neutroluz X Metro Violeta', 
+    categoria: 'Electricidad', 
+    precio: 5484,
+    descripcion: 'Cable Subterraneo 2 X 6 Mm Antiflama Neutroluz X Metro Violeta. Conductor de cobre. Material de la cubierta: pvc. Cable no propagador de incendio. Cumple con norma IRAM.',
+    Voltaje: 450/720.,
     stock: 150,
     destacado: true,
-    imagen: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&h=300&fit=crop'
+    imagen: '/img/productos/cable1.png',
+    url: 'https://articulo.mercadolibre.com.ar/MLA-1369482209-cable-subterraneo-2-x-6-mm-antiflama-neutroluz-x-metro-_JM',
   },
   { 
     id: 2, 
-    nombre: 'Térmica Bipolar 32A', 
-    categoria: 'Protección', 
-    precio: 8900,
-    descripcion: 'Interruptor térmico bipolar 32A para tablero',
+    nombre: 'Estabilizador Atomlux R1000 1000VA 220V 6 Tomas LED Línea R Tensión Monovolt', 
+    categoria: 'Computacion', 
+    precio: 102500,
+    descripcion: 'Voltaje de salida: 220V. Voltaje de entrada: 220V. Potencia nominal de 500 VA para dispositivos electrónicos. Rango de voltaje de entrada de 185V - 240V. Rango de estabilización de salida de 8%. Incluye 6 tomas para conectar múltiples dispositivos.',
     stock: 45,
     destacado: true,
-    imagen: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=300&fit=crop'
+    imagen: '/img/productos/estabilizador.png'
   },
   { 
     id: 3, 
@@ -51,11 +53,12 @@ export const productosMock = [
   },
 ]
 
-export const categoriasMock = [
-  { id: 1, nombre: 'Cables', cantidad: 42, icon: '⚡' },
-  { id: 2, nombre: 'Protección', cantidad: 28, icon: '🛡️' },
-  { id: 3, nombre: 'Iluminación', cantidad: 65, icon: '💡' },
-  { id: 4, nombre: 'Instalación', cantidad: 89, icon: '🔧' },
-  { id: 5, nombre: 'Herramientas', cantidad: 37, icon: '🛠️' },
-  { id: 6, nombre: 'Tableros', cantidad: 15, icon: '🔌' },
+export const categoriasMock = 
+[
+  { id: 1, nombre: 'Luces de Emergencia', cantidad: 42, icon: '🚨', url:'https://www.mercadolibre.com.ar/pagina/induselectric/listado/hogar-muebles-jardin/iluminacion-hogar/luces-emergencia' },
+  { id: 2, nombre: 'Computación',        cantidad: 28, icon: '🖥️', url: 'https://www.mercadolibre.com.ar/pagina/induselectric/listado/computacion/' },
+  { id: 3, nombre: 'Lámparas',            cantidad: 65, icon: '🏮', url:'https://www.mercadolibre.com.ar/pagina/induselectric/listado/hogar-muebles-jardin/iluminacion-hogar/lamparas' },
+  { id: 4, nombre: 'Focos',               cantidad: 89, icon: '💡', url: 'https://www.mercadolibre.com.ar/pagina/induselectric/listado/hogar-muebles-jardin/iluminacion-hogar/focos' },
+  { id: 5, nombre: 'Oficina',              cantidad: 37, icon: '🏢', url:'https://www.mercadolibre.com.ar/pagina/induselectric/listado/industrias-oficinas/' },
+  { id: 6, nombre: 'Electricidad',         cantidad: 15, icon: '🔌', url: 'https://www.mercadolibre.com.ar/pagina/induselectric/listado/construccion/electricidad' },
 ]

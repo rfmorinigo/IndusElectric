@@ -1,8 +1,8 @@
-import { ArrowRight } from "lucide-react"
-import { ProductGrid } from "../components/ProductGrid"
+import { ArrowRight } from "lucide-react";
+import { ProductGrid } from "../components/ProductGrid";
 
 export default function FeaturedProductsSection({ productos, onComprar }) {
-  const destacados = productos.filter((p) => p.destacado)
+  const destacados = productos.filter((p) => p.destacado);
 
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8">
@@ -19,17 +19,19 @@ export default function FeaturedProductsSection({ productos, onComprar }) {
           </div>
 
           {/* CTA desktop */}
-          <button
-            type="button"
+          <a
+            href="https://www.mercadolibre.com.ar/pagina/induselectric"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden md:flex items-center gap-2 px-6 py-3
-                       bg-gradient-to-r from-blue-600 to-purple-600
-                       text-white rounded-lg
-                       hover:from-blue-700 hover:to-purple-700
-                       transition-all"
+             bg-gradient-to-r from-blue-600 to-purple-600
+             text-white rounded-lg
+             hover:from-blue-700 hover:to-purple-700
+             transition-all cursor-pointer"
           >
             Ver todos los productos
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </a>
         </div>
 
         {/* Grid */}
@@ -49,5 +51,5 @@ export default function FeaturedProductsSection({ productos, onComprar }) {
         </div>
       </div>
     </section>
-  )
+  );
 }

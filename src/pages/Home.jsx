@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { productosMock, categoriasMock } from '../components/MockData'
 
-// 3. COMPONENTES PRINCIPALES
+// 3.COMPONENTES PRINCIPALES
 import Header from '../components/Header'
 import Hero from '../components/Hero'
 import Footer from '../components/Footer'

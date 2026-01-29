@@ -68,12 +68,14 @@ const Footer = () => {
           {/* Logo y descripción */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center">
-                <Zap className="w-7 h-7 text-white" />
-              </div>
+                <img
+                    src="img/logo.png"
+                    alt="Logo marca"
+                    className="w-8 h-8 object-contain"
+                  />
               <div>
                 <h2 className="text-2xl font-bold text-white">
-                  Electro<span className="text-blue-400">Pro</span>
+                  Indus<span className="text-blue-400">Electric</span>
                 </h2>
                 <p className="text-slate-400">Materiales eléctricos profesionales</p>
               </div>
@@ -135,9 +137,9 @@ const Footer = () => {
         {/* Información de contacto */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 pt-12 border-t border-slate-800">
           {[
-            { icon: <Phone className="w-5 h-5" />, text: '(011) 1234-5678', action: 'tel:' },
-            { icon: <Mail className="w-5 h-5" />, text: 'ventas@electropro.com', action: 'mailto:' },
-            { icon: <MapPin className="w-5 h-5" />, text: 'Av. Siempre Viva 123, CABA', action: 'https://maps.google.com' }
+            { icon: <Phone className="w-5 h-5" />, text: '(011) 4470-4380', action: 'tel:' },
+            { icon: <Mail className="w-5 h-5" />, text: 'ventas@induselectric.com.ar', action: 'mailto:' },
+            { icon: <MapPin className="w-5 h-5" />, text: 'Av. Los Quilmes 1502, Bernal, Buenos Aires', action: 'https://www.google.com/maps/search/?api=1&query=Indus+Electric+S.A.' }
           ].map((contact, index) => (
             <a
               key={index}
@@ -177,7 +179,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-slate-500 text-sm">
-              © 2024 ElectroPro. Todos los derechos reservados.
+              © 2026 Indus-Electric S.A. Todos los derechos reservados.
             </div>
             <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
               <a href="#" className="hover:text-white">Política de privacidad</a>

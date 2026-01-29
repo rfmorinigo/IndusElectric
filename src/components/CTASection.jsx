@@ -33,7 +33,7 @@ export default function BigCtaSection() {
   ]
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section id="CTA_section" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-slate-900" />
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
@@ -85,7 +85,7 @@ export default function BigCtaSection() {
           </button>
 
           <button
-            onClick={() => window.open("tel:+541112345678")}
+            onClick={() => window.open("tel:+5491144704380")}
             className="px-8 py-4 bg-gradient-to-r from-slate-800 to-slate-900
                        text-white rounded-xl font-semibold
                        flex items-center justify-center gap-3

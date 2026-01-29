@@ -1,43 +1,96 @@
-import { useEffect, useState } from "react"
-import { motion } from "framer-motion"
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Zap,
   Phone,
   Mail,
   Search,
-  ShoppingCart,
   MessageSquare,
   Menu,
   X,
   ChevronDown,
-} from "lucide-react"
+} from "lucide-react";
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [cartItems] = useState(3)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [openMobileMenu, setOpenMobileMenu] = useState(null);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20)
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const menuItems = [
-    { label: "Inicio", href: "#" },
+    { label: "Inicio", href: "/" },
+
     {
-      label: "Productos",
-      href: "#",
+      label: "Categorias",
       submenu: [
-        { label: "Electricidad", href: "https://listado.mercadolibre.com.ar/pagina/induselectric/listado/construccion/electricidad/#client=HOME&component_id=menu_corridors&component=menu_corridors&label=Electricidad&tracking_id=04aceb83-71b0-44f0-9514-48eabad8c708&global_position=1" },
-        { label: "Sanitario y baños", href: "#" },
-        { label: "Iluminación", href: "#" },
+        {
+          label: "Construcción",
+          submenu: [
+            {
+              label: "Electricidad",
+              href: "https://www.mercadolibre.com.ar/pagina/induselectric/listado/construccion/electricidad",
+            },
+            {
+              label: "Baños y Sanitarios",
+              href: "https://www.mercadolibre.com.ar/pagina/induselectric/listado/construccion/banos-sanitarios",
+            },
+          ],
+        },
+        {
+          label: "Hogar, Muebles y Jardín",
+          submenu: [
+            {
+              label: "Lámparas",
+              href: "https://www.mercadolibre.com.ar/pagina/induselectric/listado/hogar-muebles-jardin/iluminacion-hogar/lamparas",
+            },
+            {
+              label: "Focos",
+              href: "https://www.mercadolibre.com.ar/pagina/induselectric/listado/hogar-muebles-jardin/iluminacion-hogar/focos",
+            },
+            {
+              label: "Luces de Emergencia",
+              href: "https://www.mercadolibre.com.ar/pagina/induselectric/listado/hogar-muebles-jardin/iluminacion-hogar/luces-emergencia",
+            },
+            {
+              label: "Reflectores",
+              href: "https://www.mercadolibre.com.ar/pagina/induselectric/listado/hogar-muebles-jardin/iluminacion-hogar/reflectores",
+            },
+          ],
+        },
+        {
+          label: "Otras categorías",
+          submenu: [
+            {
+              label: "Industria y Oficina",
+              href: "https://www.mercadolibre.com.ar/pagina/induselectric/listado/industrias-oficinas/",
+            },
+            {
+              label: "Computación",
+              href: "https://www.mercadolibre.com.ar/pagina/induselectric/listado/computacion/",
+            },
+            {
+              label: "Electrodomésticos y Aires acondicionados",
+              href: "https://www.mercadolibre.com.ar/pagina/induselectric/listado/electrodomesticos-aires-ac/",
+            },
+          ],
+        },
       ],
     },
-    { label: "Ofertas", href: "#", badge: true },
-    { label: "Empresas", href: "#" },
-    { label: "Contacto", href: "#" },
-  ]
+
+    {
+      label: "Tienda",
+      href: "https://www.mercadolibre.com.ar/pagina/induselectric",
+      badge: true,
+    },
+    { label: "Empresas", href: "#CTA_section" },
+    { label: "Contacto", href: "#contacto" },
+  ];
 
   return (
     <>
@@ -76,26 +129,25 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
+            <a href='/'>
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center">
                 <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center overflow-hidden">
                   <img
-                    src='img/logo.png'
+                    src="img/logo.png"
                     alt="Logo marca"
                     className="w-8 h-8 object-contain"
                   />
                 </div>
-
               </div>
               <div>
                 <h1 className="text-xl font-bold text-white">
                   Indus<span className="text-blue-400">Electric</span>
                 </h1>
-                <p className="text-xs text-slate-400">
-                  Materiales eléctricos
-                </p>
+                <p className="text-xs text-slate-400">Materiales eléctricos</p>
               </div>
             </div>
+            </a>
 
             {/* Navegación Desktop */}
             <nav className="hidden lg:flex items-center gap-8">
@@ -103,27 +155,34 @@ export default function Header() {
                 <div key={item.label} className="relative group">
                   <button className="flex items-center gap-1 text-slate-300 hover:text-white">
                     <span>{item.label}</span>
-                    {item.submenu && (
-                      <ChevronDown className="w-4 h-4" />
-                    )}
-                    {item.badge && (
-                      <span className="absolute -top-1 -right-2 px-1.5 py-0.5 text-xs bg-red-500 text-white rounded-full">
-                        Hot
-                      </span>
-                    )}
+                    {item.submenu && <ChevronDown className="w-4 h-4" />}
                   </button>
 
                   {item.submenu && (
                     <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                      <div className="mt-2 py-2 bg-slate-900/95 backdrop-blur-md rounded-lg border border-slate-800 min-w-[200px]">
-                        {item.submenu.map((subItem) => (
-                          <a
-                            key={subItem.label}
-                            href={subItem.href}
-                            className="block px-4 py-2 text-slate-300 hover:text-white hover:bg-slate-800/50"
-                          >
-                            {subItem.label}
-                          </a>
+                      <div className="mt-2 p-4 bg-slate-900/95 backdrop-blur-md rounded-lg border border-slate-800 min-w-[260px] space-y-4">
+                        {item.submenu.map((group) => (
+                          <div key={group.label}>
+                            {/* Grupo */}
+                            <p className="text-sm font-semibold text-slate-400 mb-2">
+                              {group.label}
+                            </p>
+
+                            {/* Subcategorías */}
+                            <div className="space-y-1">
+                              {group.submenu.map((sub) => (
+                                <a
+                                  key={sub.label}
+                                  href={sub.href}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="block px-3 py-2 rounded text-slate-300 hover:text-white hover:bg-slate-800/60 text-sm"
+                                >
+                                  {sub.label}
+                                </a>
+                              ))}
+                            </div>
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -142,15 +201,6 @@ export default function Header() {
                   className="pl-10 pr-4 py-2 bg-slate-900 border border-slate-800 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 w-40 lg:w-56"
                 />
               </div>
-
-              <button className="relative p-2 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800">
-                <ShoppingCart className="w-5 h-5 text-white" />
-                {cartItems > 0 && (
-                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">
-                    {cartItems}
-                  </span>
-                )}
-              </button>
 
               <button
                 onClick={() =>
@@ -185,9 +235,47 @@ export default function Header() {
             <div className="max-w-7xl mx-auto px-4 py-4">
               {menuItems.map((item) => (
                 <div key={item.label} className="border-b border-slate-800">
-                  <span className="block py-3 text-slate-300">
-                    {item.label}
-                  </span>
+                  <button
+                    onClick={() =>
+                      setOpenMobileMenu(
+                        openMobileMenu === item.label ? null : item.label,
+                      )
+                    }
+                    className="w-full flex items-center justify-between py-3 text-slate-300"
+                  >
+                    <span>{item.label}</span>
+                    {item.submenu && (
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform ${
+                          openMobileMenu === item.label ? "rotate-180" : ""
+                        }`}
+                      />
+                    )}
+                  </button>
+
+                  {/* SUBMENÚ */}
+                  {item.submenu && openMobileMenu === item.label && (
+                    <div className="pl-4 pb-3 space-y-3">
+                      {item.submenu.map((group) => (
+                        <div key={group.label}>
+                          <p className="text-xs text-slate-400 uppercase mb-1">
+                            {group.label}
+                          </p>
+                          {group.submenu.map((sub) => (
+                            <a
+                              key={sub.label}
+                              href={sub.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="block py-1 text-sm text-slate-300 hover:text-white"
+                            >
+                              {sub.label}
+                            </a>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -195,5 +283,5 @@ export default function Header() {
         )}
       </motion.header>
     </>
-  )
+  );
 }

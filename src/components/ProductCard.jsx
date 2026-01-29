@@ -20,7 +20,7 @@ export function ProductCard({ producto, onComprar }) {
 
         {producto.destacado && (
           <div className="absolute top-3 left-3 px-3 py-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-xs font-bold rounded-full">
-            DESTACADO
+            MAS VENDIDO
           </div>
         )}
       </div>
