@@ -93,25 +93,24 @@ export default function Header() {
   ];
 
   const NavItem = ({ item }) => {
-  if (item.href) {
+    if (item.href) {
+      return (
+        <a
+          href={item.href}
+          className="flex items-center gap-1 text-slate-300 hover:text-white"
+        >
+          <span>{item.label}</span>
+        </a>
+      );
+    }
+
     return (
-      <a
-        href={item.href}
-        className="flex items-center gap-1 text-slate-300 hover:text-white"
-      >
+      <button className="flex items-center gap-1 text-slate-300 hover:text-white">
         <span>{item.label}</span>
-      </a>
+        <ChevronDown className="w-4 h-4" />
+      </button>
     );
-  }
-
-  return (
-    <button className="flex items-center gap-1 text-slate-300 hover:text-white">
-      <span>{item.label}</span>
-      <ChevronDown className="w-4 h-4" />
-    </button>
-  );
-};
-
+  };
 
   return (
     <>
@@ -150,24 +149,26 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <a href='/'>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center">
-                <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center overflow-hidden">
-                  <img
-                    src="img/logo.png"
-                    alt="Logo marca"
-                    className="w-8 h-8 object-contain"
-                  />
+            <a href="/">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center overflow-hidden">
+                    <img
+                      src="img/logo.png"
+                      alt="Logo marca"
+                      className="w-8 h-8 object-contain"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <h1 className="text-xl font-bold text-white">
+                    Indus<span className="text-blue-400">Electric</span>
+                  </h1>
+                  <p className="text-xs text-slate-400">
+                    Materiales eléctricos
+                  </p>
                 </div>
               </div>
-              <div>
-                <h1 className="text-xl font-bold text-white">
-                  Indus<span className="text-blue-400">Electric</span>
-                </h1>
-                <p className="text-xs text-slate-400">Materiales eléctricos</p>
-              </div>
-            </div>
             </a>
 
             {/* Navegación Desktop */}
@@ -253,23 +254,34 @@ export default function Header() {
             <div className="max-w-7xl mx-auto px-4 py-4">
               {menuItems.map((item) => (
                 <div key={item.label} className="border-b border-slate-800">
-                  <button
-                    onClick={() =>
-                      setOpenMobileMenu(
-                        openMobileMenu === item.label ? null : item.label,
-                      )
-                    }
-                    className="w-full flex items-center justify-between py-3 text-slate-300"
-                  >
-                    <span>{item.label}</span>
-                    {item.submenu && (
+                  {item.label === "Categorias" ? (
+                    <button
+                      onClick={() =>
+                        setOpenMobileMenu(
+                          openMobileMenu === item.label ? null : item.label,
+                        )
+                      }
+                      className="w-full flex items-center justify-between py-3 text-slate-300"
+                    >
+                      <span>{item.label}</span>
                       <ChevronDown
                         className={`w-4 h-4 transition-transform ${
                           openMobileMenu === item.label ? "rotate-180" : ""
                         }`}
                       />
-                    )}
-                  </button>
+                    </button>
+                  ) : (
+                    <a
+                      href={item.href}
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        setOpenMobileMenu(null);
+                      }}
+                      className="w-full flex items-center justify-between py-3 text-slate-300 hover:text-white"
+                    >
+                      <span>{item.label}</span>
+                    </a>
+                  )}
 
                   {/* SUBMENÚ */}
                   {item.submenu && openMobileMenu === item.label && (
