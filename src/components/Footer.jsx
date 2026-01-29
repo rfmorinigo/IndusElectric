@@ -75,7 +75,7 @@ const Footer = () => {
                   />
               <div>
                 <h2 className="text-2xl font-bold text-white">
-                  Indus<span className="text-blue-400">Electric</span>
+                  Indus<span className="text-blue-400">Electric S.A.</span>
                 </h2>
                 <p className="text-slate-400">Materiales eléctricos profesionales</p>
               </div>
@@ -83,7 +83,7 @@ const Footer = () => {
             
             <p className="text-slate-400 mb-6">
               Proveedores oficiales de materiales eléctricos para profesionales 
-              e industria. 38 años de experiencia.
+              e industria. Mas 38 años de experiencia.
             </p>
             
             {/* Redes sociales */}

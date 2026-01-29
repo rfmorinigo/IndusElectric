@@ -1,10 +1,5 @@
-import { motion } from "framer-motion"
-import {
-  Shield,
-  Truck,
-  Zap,
-  ArrowRight,
-} from "lucide-react"
+import { motion } from "framer-motion";
+import { Shield, Truck, Zap, ArrowRight } from "lucide-react";
 
 export default function Hero() {
   const features = [
@@ -23,7 +18,7 @@ export default function Hero() {
       title: "Asesoramiento técnico",
       description: "Expertos en instalaciones eléctricas",
     },
-  ]
+  ];
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950/50 to-slate-950">
@@ -35,7 +30,6 @@ export default function Hero() {
 
       <div className="relative max-w-7xl mx-auto px-4 py-20 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-
           {/* Texto */}
           <div>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/20 border border-blue-500/30 mb-6">
@@ -53,7 +47,8 @@ export default function Hero() {
             </h1>
 
             <p className="text-xl text-slate-300 mb-8 max-w-xl">
-              Proveedor oficial de materiales eléctricos para profesionales e industria.
+              Proveedor oficial de materiales eléctricos para profesionales e
+              industria.
             </p>
 
             <div className="flex gap-4 mb-12">
@@ -67,7 +62,11 @@ export default function Hero() {
                 <ArrowRight className="w-5 h-5" />
               </button>
 
-              <a target="_blank" href="https://www.mercadolibre.com.ar/pagina/induselectric" className="px-8 py-4 border border-slate-700 text-white rounded-xl">
+              <a
+                target="_blank"
+                href="https://www.mercadolibre.com.ar/pagina/induselectric"
+                className="px-8 py-4 border border-slate-700 text-white rounded-xl"
+              >
                 Ver catálogo
               </a>
             </div>
@@ -75,7 +74,7 @@ export default function Hero() {
             {/* Features */}
             <div className="flex flex-wrap gap-4">
               {features.map((feature, i) => {
-                const Icon = feature.icon
+                const Icon = feature.icon;
                 return (
                   <motion.div
                     key={i}
@@ -86,27 +85,36 @@ export default function Hero() {
                       <Icon className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <p className="font-medium text-white">
-                        {feature.title}
-                      </p>
+                      <p className="font-medium text-white">{feature.title}</p>
                       <p className="text-sm text-slate-400">
                         {feature.description}
                       </p>
                     </div>
                   </motion.div>
-                )
+                );
               })}
             </div>
           </div>
 
           {/* Visual */}
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 text-center">
-            <img src="/img/frente.png"
-            alt="hero_img"
-            className="w-full h-full object-contain"/>
+          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 text-center space-y-4">
+            <img
+              src="/img/frente.png"
+              alt="Frente Indus Electric"
+              className="w-full h-full object-contain rounded-xl"
+            />
+
+            <p className="text-slate-300 text-sm md:text-base">
+              <span className="font-semibold text-white">Más de 38 años</span>{" "}
+              acompañando a la industria, la construcción y el hogar con{" "}
+              <span className="text-blue-400 font-semibold">
+                materiales eléctricos de calidad. 
+              </span>
+             {" "}Apoyo, asesoramiento, confianza y muy buen servicio.
+            </p>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
